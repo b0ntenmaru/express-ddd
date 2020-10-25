@@ -1,0 +1,20 @@
+{
+  "type": "mysql",
+  "host": "db", // 接続するDBホスト名
+  "port": 3306,
+  "username": "docker",  // DBユーザ名
+  "password": "docker",  // DBパスワード
+  "database": "express_ddd", // DB名
+  // 注意" これがtrueだと、モデル定義を変更すると即DB反映されます。
+  // 個人PJならいいですが、普通はmigrationファイルで世代管理すると思うのでfalseにします。
+  "synchronize": false,
+  "logging": false,
+  "entities": ["src/entities/**/*.ts"],
+  "migrations": ["src/db/migrations/**/*.ts"],
+  "subscribers": ["src/db/subscribers/**/*.ts"],
+  "cli": {
+     "entitiesDir": "src/entities",
+     "migrationsDir": "src/db/migrations",
+     "subscribersDir": "src/db/subscribers"
+  }
+}
