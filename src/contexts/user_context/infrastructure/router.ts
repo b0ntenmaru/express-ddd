@@ -1,6 +1,6 @@
 import Express from 'express';
 import mysql from 'mysql';
-import { UsersController } from '../application/usersController';
+import { UsersController } from '../presentation/usersController';
 import { UserRepository } from '../infrastructure/userRepository';
 
 const router = Express.Router();
