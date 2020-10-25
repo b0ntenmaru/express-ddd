@@ -3,6 +3,8 @@ import mysql from 'mysql';
 import { UsersController } from '../presentation/usersController';
 import { UserRepository } from '../infrastructure/userRepository';
 
+import { OrmUsers } from '../../../entities/OrmUsers';
+
 const router = Express.Router();
 
 const connecter = mysql.createConnection({
@@ -24,6 +26,14 @@ const usersController = new UsersController(userRepository);
 /**
  * Routing
  */
+
+ /**
+  * type orm用
+  */
+router.get('/typeorm', async (request: Express.Request, response: Express.Response) => {
+  const ormUser = await OrmUsers.findOne();
+  response.send(ormUser);
+}); 
 
 /**
  * GET /users
