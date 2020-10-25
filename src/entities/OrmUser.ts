@@ -1,15 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 
 @Entity()
-export class User extends BaseEntity {
+export class OrmUsers extends BaseEntity {
   @PrimaryGeneratedColumn()
-  public id: number
+  public id: number;
 
   @Column()
-  public name: string = ''
+  public name: string = '';
 
   @Column()
-  public age: number = 0
+  public age: number = 0;
 }
 
-export default User
+export default OrmUsers;
