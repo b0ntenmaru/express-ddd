@@ -30,8 +30,8 @@ const usersController = new UsersController(userRepository);
  * 全てのユーザーを取得する
  */
 router.get('/users', async (request: Express.Request, response: Express.Response) => {
-  const result = await usersController.findAll();
-  response.send(result);
+  const results = await usersController.findAll();
+  response.send(results);
 });
 
 /**
