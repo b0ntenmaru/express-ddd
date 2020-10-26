@@ -1,5 +1,5 @@
 import Express from 'express';
-import router from './src/contexts/user_context/infrastructure/router';
+import router from './contexts/user_context/infrastructure/router';
 import bodyParser from 'body-parser';
 
 const app = Express();
