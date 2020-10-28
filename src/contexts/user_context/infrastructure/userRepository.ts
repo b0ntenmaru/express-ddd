@@ -30,16 +30,12 @@ export class UserRepository implements UserIRepository {
    * ユーザーを作成する
    * @param request ユーザーが入力した値
    */
-  public createUser(request: Request): Promise<User> {
-    return new Promise((resolve, reject) => {
-      const sql: string = 'INSERT INTO users SET ?';
-      this.dbConnecter.query(sql, { name: request.body.name, email: request.body.email }, (error, result) => {
-        if (error) reject(error);
-
-        console.log(result);
-        resolve(result);
-      });
-    });
+  public async createUser(request: Request): Promise<void> {
+    const user = new User({ name: request.body.name, email: request.body.email });
+    const ormUser = new Orm.User();
+    ormUser.name = user.name;
+    ormUser.email = user.email;
+    await Orm.User.save(ormUser);
   }
 
   /**

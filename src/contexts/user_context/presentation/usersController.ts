@@ -24,8 +24,7 @@ export class UsersController {
    * ユーザーを作成
    * @param request
    */
-  async createUser(request: Request): Promise<User> {
-    const result = await this.userRepository.createUser(request);
-    return result;
+  async createUser(request: Request): Promise<void> {
+    await this.userRepository.createUser(request);
   }
 }

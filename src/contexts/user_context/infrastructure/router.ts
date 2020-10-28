@@ -39,8 +39,8 @@ router.get('/users', async (request: Express.Request, response: Express.Response
  * ユーザーを作成する
  */
 router.post('/users/create', async (request: Express.Request, response: Express.Response) => {
-  const result = await usersController.createUser(request);
-  response.send(result);
+  await usersController.createUser(request);
+  response.send();
 });
 
 // DELETE

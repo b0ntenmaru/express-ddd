@@ -1,7 +1,7 @@
 export class User {
-  private readonly id: number;
-  private readonly name: string;
-  private readonly email: string;
+  public readonly id: number;
+  public readonly name: string;
+  public readonly email: string;
 
   constructor(user: any) {
     this.id = user.id;
