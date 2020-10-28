@@ -11,10 +11,10 @@ const connecter = mysql.createConnection({
   host: 'db',
   user: 'docker',
   password: 'docker',
-  database: 'express_ddd'
+  database: 'express_ddd',
 });
 
-connecter.connect(function(error: any): void {
+connecter.connect(function (error: any): void {
   if (error) throw error;
   console.log('connected to Database');
 });
@@ -27,13 +27,13 @@ const usersController = new UsersController(userRepository);
  * Routing
  */
 
- /**
-  * type orm用
-  */
+/**
+ * type orm用
+ */
 router.get('/typeorm', async (request: Express.Request, response: Express.Response) => {
   const ormUser = await OrmUsers.findOne();
   response.send(ormUser);
-}); 
+});
 
 /**
  * GET /users
@@ -59,7 +59,7 @@ router.delete('/users/:id', (request: Express.Request, response: Express.Respons
   connecter.query(sql, [request.params.id], (error, results, fields) => {
     if (error) throw error;
     console.log(results);
-    response.send(`Deleted User with id ${request.params.id}`)
+    response.send(`Deleted User with id ${request.params.id}`);
   });
 });
 
@@ -69,7 +69,7 @@ router.put('/users/:id', (request: Express.Request, response: Express.Response) 
   connecter.query(sql, request.body, (error, results, fields) => {
     if (error) throw error;
     console.log(results);
-    response.send(`Updated User with id ${request.params.id}`)
+    response.send(`Updated User with id ${request.params.id}`);
   });
 });
 
