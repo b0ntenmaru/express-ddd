@@ -5,7 +5,7 @@
     "prettier": [
       true, {
         "singleQuote": true,
-        "semi": false,
+        "semi": true,
         "printWidth": 120
       }
     ]
