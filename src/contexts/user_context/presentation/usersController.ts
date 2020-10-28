@@ -17,12 +17,12 @@ export class UsersController {
    */
   async findAll(): Promise<User[]> {
     const results = await this.userRepository.findAll();
-    return results
+    return results;
   }
 
   /**
    * ユーザーを作成
-   * @param request  
+   * @param request
    */
   async createUser(request: Request): Promise<User> {
     const result = await this.userRepository.createUser(request);
