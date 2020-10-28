@@ -30,18 +30,17 @@ const usersController = new UsersController(userRepository);
  * 全てのユーザーを取得する
  */
 router.get('/users', async (request: Express.Request, response: Express.Response) => {
-  const result = await usersController.findAll();
-  response.send(result);
+  const results = await usersController.findAll();
+  response.send(results);
 });
 
-// POST
-router.post('/users', (request: Express.Request, response: Express.Response) => {
-  const sql: string = 'INSERT INTO users SET ?';
-  connecter.query(sql, { name: request.body.name, email: request.body.email}, (error, results) => {
-    if (error) throw error;
-    console.log(results);
-    response.send('Registration Completed');
-  });
+/**
+ * POST /users/create
+ * ユーザーを作成する
+ */
+router.post('/users/create', async (request: Express.Request, response: Express.Response) => {
+  const result = await usersController.createUser(request);
+  response.send(result);
 });
 
 // DELETE

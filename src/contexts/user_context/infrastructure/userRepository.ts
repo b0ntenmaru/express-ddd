@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import { Connection } from 'mysql';
 import { User } from '../domain/entities/user';
 import { UserIRepository } from '../domain/userIRepository';
@@ -25,6 +26,22 @@ export class UserRepository implements UserIRepository {
         });
 
         resolve(users);
+      });
+    });
+  }
+  
+  /**
+   * ユーザーを作成する
+   * @param request ユーザーが入力した値
+   */
+  public createUser(request: Request): Promise<User> {
+    return new Promise((resolve, reject) => {
+      const sql: string = 'INSERT INTO users SET ?';
+      this.dbConnecter.query(sql, { name: request.body.name, email: request.body.email}, (error, result) => {
+        if (error) reject(error);
+        
+        console.log(result);
+        resolve(result);
       });
     });
   }

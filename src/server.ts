@@ -8,6 +8,9 @@ const port: number = 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+/**
+ * routing呼び出し
+ */
 app.use('/', router);
 
 app.listen(port, () => {

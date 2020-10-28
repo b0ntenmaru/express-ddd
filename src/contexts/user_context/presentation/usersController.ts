@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import { UserIRepository } from '../domain/userIRepository';
 import { User } from '../domain/entities/user';
 
@@ -17,5 +18,14 @@ export class UsersController {
   async findAll(): Promise<User[]> {
     const results = await this.userRepository.findAll();
     return results
+  }
+
+  /**
+   * ユーザーを作成
+   * @param request  
+   */
+  async createUser(request: Request): Promise<User> {
+    const result = await this.userRepository.createUser(request);
+    return result;
   }
 }
