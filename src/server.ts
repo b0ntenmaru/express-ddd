@@ -1,5 +1,5 @@
 import Express from 'express';
-import router from './contexts/user_context/infrastructure/router';
+import router from './main/contexts/user_context/infrastructure/router';
 import bodyParser from 'body-parser';
 import { getConnectionOptions, createConnection, BaseEntity } from 'typeorm';
 

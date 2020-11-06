@@ -2,7 +2,7 @@ import { Request } from 'express';
 import { Connection } from 'mysql';
 import { User } from '../domain/entities/user';
 import { UserIRepository } from '../domain/userIRepository';
-import Orm from '../../../entities/User';
+import Orm from '../../../resources/db/entities/User';
 /**
  * UserのCRUDを実行するRepository
  */

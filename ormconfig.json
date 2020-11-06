@@ -7,12 +7,12 @@
   "database": "express_ddd",
   "synchronize": false,
   "logging": "all",
-  "entities": ["src/entities/**/*.ts"],
-  "migrations": ["src/db/migrations/**/*.ts"],
-  "subscribers": ["src/db/subscribers/**/*.ts"],
+  "entities": ["src/main/resources/db/entities/**/*.ts"],
+  "migrations": ["src/main/resources/db/migrations/**/*.ts"],
+  "subscribers": ["src/main/resources/db/subscribers/**/*.ts"],
   "cli": {
-     "entitiesDir": "src/entities",
-     "migrationsDir": "src/db/migrations",
-     "subscribersDir": "src/db/subscribers"
+     "entitiesDir": "src/main/resources/db/entities",
+     "migrationsDir": "src/main/resources/db/migrations",
+     "subscribersDir": "src/main/resources/db/subscribers"
   }
 }
