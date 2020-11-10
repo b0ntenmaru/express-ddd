@@ -4,13 +4,13 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: npm run dev
     environment:
       NODE_ENV: development
     ports:
       - '8080:8080'
     volumes:
       - .:/app
+    tty: true
 
   db:
     image: mysql:5
